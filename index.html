@@ -1,556 +1,2219 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hattie House</title>
+
+<title>Hattie's House Liberia</title>
+
+
+
+</head>
+
 <style>
-/* GENERAL */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    /* =========================
+   GENERAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-/* HEADER */
-header {
-    background-color: #08070c;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
+
+html{
+    scroll-behavior:smooth;
 }
 
-header nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
+
+body{
+    background:#f7f9fc;
+    color:#333;
 }
 
-header nav a:hover {
-    text-decoration: underline;
+
+section{
+    padding:60px 20px;
+    scroll-margin-top:90px;
 }
 
-/* HERO */
-.hero {
-    background: url('https://images.unsplash.com/photo-1596495577886-d920f5b4f2ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080') center/cover no-repeat;
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
+
+
+/* =========================
+   LOGIN
+========================= */
+
+
+#loginPage{
+
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.5),
+    rgba(0,0,0,.5)),
+    url("images/group.jpg");
+
+    background-size:cover;
+    background-position:center;
+
 }
 
-.hero h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
+
+
+.login-box{
+
+    width:350px;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    text-align:center;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.2);
+
 }
 
-.hero p {
-    font-size: 18px;
-    margin-bottom: 20px;
+
+
+.login-logo{
+
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+
 }
 
-.hero button {
-    padding: 12px 25px;
-    font-size: 16px;
-    background-color: #ff6b81;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+
+.login-box input{
+
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+
+    border:1px solid #ddd;
+    border-radius:8px;
+
 }
 
-.hero button:hover {
-    background-color: #ff4757;
+
+
+
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+
+button{
+
+    background:#0a7cff;
+    color:white;
+
+    border:none;
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
 }
 
-/* SECTIONS */
-section {
-    padding: 50px 20px;
-    text-align: center;
+
+
+button:hover{
+
+    background:#0059c9;
+
 }
 
-section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+
+
+
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+
+header{
+
+    background:white;
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:
+    0 2px 15px rgba(0,0,0,.1);
+
 }
 
-/* CHILDREN PROFILES */
-.children-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+
+
+.navbar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:15px 4%;
+
+    gap:20px;
+
+}
+
+
+
+.logo{
+
+    flex-shrink:0;
+
+}
+
+
+
+.logo h1{
+
+    font-size:25px;
+
+    white-space:nowrap;
+
+}
+
+
+
+.logo span{
+
+    color:#0a7cff;
+
+}
+
+
+
+
+#navLinks{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:20px;
+
+    list-style:none;
+
+    flex:1;
+
+}
+
+
+
+
+#navLinks li{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+
+
+#navLinks a,
+.nav-button{
+
+    text-decoration:none;
+
+    color:#333;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    white-space:nowrap;
+
+}
+
+
+
+#navLinks a:hover,
+.nav-button:hover{
+
+    color:#0a7cff;
+
+}
+
+
+
+.nav-button{
+
+    background:none;
+
+    border:none;
+
+    padding:0;
+
+}
+
+
+
+.menu-icon{
+
+    display:none;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+ PROFILE
+========================= */
+
+
+.profile{
+
+    position:relative;
+
+    flex-shrink:0;
+
+    cursor:pointer;
+
+}
+
+
+
+.profile img{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid #0a7cff;
+
+}
+
+
+
+.profile-menu{
+
+    position:absolute;
+
+    right:0;
+
+    top:65px;
+
+    width:220px;
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.2);
+
+    display:none;
+
+}
+
+
+
+.profile:hover .profile-menu{
+
+    display:block;
+
+}
+
+
+
+.profile-menu a{
+
+    display:block;
+
+    padding:10px 0;
+
+    color:#333;
+
+    text-decoration:none;
+
+}
+
+
+
+
+
+
+
+/* =========================
+ HERO
+========================= */
+
+
+.hero{
+
+    height:80vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+
+    background:
+
+    linear-gradient(
+    rgba(0,0,0,.5),
+    rgba(0,0,0,.5)),
+
+    url("images/group.jpg");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+
+
+.hero h2{
+
+    font-size:45px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.hero p{
+
+    font-size:20px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+ CHILDREN
+========================= */
+
+
+.children-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.1);
+
+}
+
+
+
+.card img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+ UPLOAD
+========================= */
+
+
+.upload-box{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.1);
+
+}
+
+
+
+.upload-box input{
+
+    margin:20px;
+
+}
+
+
+
+#photoPreview img,
+#videoPreview video{
+
+    width:250px;
+
+    margin:10px;
+
+    border-radius:10px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+ FORMS
+========================= */
+
+
+form{
+
+    max-width:600px;
+
+    margin:auto;
+
+}
+
+
+
+form input,
+textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    border-radius:8px;
+
+    border:1px solid #ddd;
+
+}
+
+
+
+textarea{
+
+    height:130px;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+ HIDDEN SECTIONS
+========================= */
+
+
+/* =========================
+CONTACT
+========================= */
+
+.contact-header{
+
+text-align:center;
+margin-bottom:50px;
+
+}
+
+.contact-header h1{
+
+font-size:42px;
+color:#0a7cff;
+margin-bottom:15px;
+
+}
+
+.contact-header p{
+
+max-width:700px;
+margin:auto;
+color:#666;
+line-height:1.8;
+font-size:18px;
+
+}
+
+.contact-container{
+
+max-width:1200px;
+margin:auto;
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+
+align-items:start;
+
+}
+
+.contact-card{
+
+background:#fff;
+padding:20px;
+margin-bottom:20px;
+
+border-radius:15px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.contact-card h3{
+
+color:#0a7cff;
+margin-bottom:10px;
+
+}
+
+.contact-card p{
+
+color:#555;
+line-height:1.6;
+
+}
+
+.contact-card a{
+
+color:#333;
+text-decoration:none;
+
+}
+
+.contact-card a:hover{
+
+color:#0a7cff;
+
+}
+
+.whatsapp-btn{
+
+display:inline-block;
+
+margin-top:15px;
+
+background:#25D366;
+color:white;
+
+padding:12px 22px;
+
+border-radius:8px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.whatsapp-btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+.social-links{
+
+display:flex;
+
+gap:15px;
+
+margin-top:25px;
+
+flex-wrap:wrap;
+
+}
+
+.social-links a{
+
+background:#0a7cff;
+
+color:white;
+
+padding:10px 18px;
+
+border-radius:8px;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.social-links a:hover{
+
+background:#0059c9;
+
+}
+
+.contact-form{
+
+background:white;
+
+padding:35px;
+
+border-radius:15px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.contact-form h2{
+
+color:#0a7cff;
+margin-bottom:20px;
+
+}
+
+.contact-form input,
+.contact-form textarea{
+
+width:100%;
+
+padding:15px;
+
+margin-bottom:18px;
+
+border:1px solid #ddd;
+
+border-radius:8px;
+
+font-size:16px;
+
+}
+
+.contact-form textarea{
+
+height:160px;
+resize:none;
+
+}
+
+.contact-form button{
+
+width:100%;
+
+}
+
+@media(max-width:900px){
+
+.contact-container{
+
+grid-template-columns:1fr;
+
+}
+
+.contact-header h1{
+
+font-size:34px;
+
+}
+
+}
+
+
+#successMessage{
+
+display:none;
+
+background:#0a7cff;
+
+color:white;
+
+padding:15px;
+
+margin-top:20px;
+
+border-radius:10px;
+
+text-align:center;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+/* =========================
+ FOOTER
+========================= */
+
+
+footer{
+
+    background:#111;
+
+    color:white;
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+
+
+/* =========================
+IMAGE VIEWER
+========================= */
+
+.image-viewer{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.95);
+
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+
+}
+
+.image-viewer img{
+
+max-width:90%;
+max-height:90%;
+
+border-radius:15px;
+
+box-shadow:0 0 30px rgba(255,255,255,.3);
+
+}
+
+.close-image{
+
+position:absolute;
+
+top:20px;
+right:40px;
+
+font-size:45px;
+
+color:white;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+
+
+/* =========================
+ MOBILE
+========================= */
+
+
+@media(max-width:900px){
+
+
+.navbar{
+
+    padding:15px 20px;
+
+}
+
+
+
+.menu-icon{
+
+    display:block;
+
+}
+
+
+
+#navLinks{
+
+
+    position:absolute;
+
+    top:75px;
+
+    left:0;
+
+    width:100%;
+
+    background:white;
+
+
+    flex-direction:column;
+
+
+    display:none;
+
+
+    padding:20px;
+
+
+}
+
+
+
+#navLinks.active{
+
+    display:flex;
+
+}
+
+
+
+#navLinks li{
+
+    padding:12px;
+
+}
+
+
+
+.logo h1{
+
+    font-size:20px;
+
+}
+
+
+
+.profile img{
+
+    width:45px;
+
+    height:45px;
+
+}
+
+
+
+.hero h2{
+
+    font-size:30px;
+
+}
+
+
+
+.hero p{
+
+    font-size:16px;
+
+}
+
+
+
+}
+
+
+
+
+
+
+#gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    padding: 20px 0;
 }
 
-.child-card {
-    background-color: white;
-    width: 250px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.child-card img {
+#gallery-container img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
-    border-radius: 10px;
-}
-
-/* FORMS */
-form input, form textarea, form button {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-form button {
-    background-color: #0b0a12;
-    color: white;
-    border: none;
+    border-radius: 15px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-form button:hover {
-    background-color: #25a6e2;;
+#gallery-container img:hover {
+    transform: scale(1.05);
 }
 
-/* MESSAGES */
-.success {
-    color: green;
-    margin-top: 10px;
-}
 
-.error {
-    color: red;
-}
 
-/* FOOTER */
-footer {
-    background-color: #eee;
-    padding: 20px;
-    text-align: center;
-}
 
-/* LOGIN PAGE */
-#loginPage {
-    display: flex;
+#lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    z-index: 9999;
 }
 
-.login-container {
-    max-width: 400px;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-    .children-container{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header nav a{
-        display: block;
-        margin: 5px 0;
-    }
-
-    .hero h2{
-        font-size: 26px;
-    }
-    .hero p{
-        font-size: 16px;
-    }
-}
-
-
-/* GRID OF IMAGES */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
-}
-
-.image-box {
-  text-align: center;
-}
-
-.click-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-.image-name {
-  margin-top: 8px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* POPUP BACKGROUND */
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  padding-top: 50px;
-  text-align: center;
-}
-
-/* FULL IMAGE */
-.popup-content {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-/* CLOSE BUTTON */
-#closeBtn {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  color: white;
-  font-size: 40px;
-  cursor: pointer;
+#close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
 }
 
 
 
 
+/* =========================
+   GALLERY
+========================= */
 
-
-
-
-nav {
-      width: 100%;
-      background: #1a1a1a;
-      color: white;
-      padding: 12px 24px;
-
-      justify-content: space-between;
-      align-items: left;
-    }
-
-
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      margin-right: 20px;
-      font-size: 16px;
-    }
-
-    .profile {
-      position: relative;
-      cursor: pointer;
-    }
-
-    .profile img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 2px solid #fff;
-      float: left;
-   
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 50px;
-      right: 0;
-      background: #fff;
-      color: #333;
-      width: 160px;
-      border-radius: 6px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      display: none;
-      flex-direction: column;
-    }
-
-    .dropdown a {
-      padding: 12px;
-      text-decoration: none;
-      color: #333;
-      font-size: 14px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .dropdown a:hover {
-      background: #f5f5f5;
-    }
-
-    .dropdown a:last-child {
-      border-bottom: none;
-    }
-
-
-
-
-
-p{
-  float: left;
-  color: #060b0d;
+#gallery{
+    padding:60px 20px;
 }
+
+#gallery h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#0a7cff;
+}
+
+#gallery-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+#gallery-container img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+#gallery-container img:hover{
+    transform:scale(1.03);
+}
+
+.upload-box{
+    max-width:500px;
+    margin:40px auto;
+    text-align:center;
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.upload-box input{
+    margin:20px 0;
+}
+
+#upload-message{
+    margin-top:15px;
+    font-weight:bold;
+    color:#0a7cff;
+}
+
 
 
 
 </style>
-</head>
 <body>
 
+
+
 <!-- LOGIN PAGE -->
-<div id="loginPage">
-    <div class="login-container">
-        <h2>hattie Login</h2>
-        <form id="loginForm">
-            <input type="email" id="email" placeholder="Your Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-        <p style="font-size:14px;color:#555;">*You can use any email/password to log in*</p>
-    </div>
+
+<section id="loginPage">
+
+<div class="login-box">
+
+<img src="088.jpeg" class="login-logo">
+
+<h2>Hattie's House Login</h2>
+
+
+<input 
+type="email"
+id="email"
+placeholder="Email">
+
+
+<input 
+type="password"
+id="password"
+placeholder="Password">
+
+
+<button onclick="login()">
+Login
+</button>
+
+
 </div>
 
+</section>
+
+
+
+
+
 <!-- MAIN WEBSITE -->
+
 <div id="mainContent" style="display:none;">
 
 
 
 
 
-    
 
-    <header>
-        <div class="header-container">
-            <h1>Welcome <span style="color: #13df43;">To Hattie's House </Span>Liberia</h1>
-            <nav>
-              <a href="Https://www.facebook.com/profile.php?id=61581631665760"><svg xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                 <path fill="white"
-                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.832 9.504v-6.28h-2.031V12h2.031V9.799c0-4.082 2.354-6.315 6.051-6.315 1.804 0 3.343.134 3.73.196v3.257h-2.181c-1.955 0-2.348.976-2.348 2.26v2.728h3.582l-.462 3.683h-3.12V21.5c3.967-1.324 6.832-5.08 6.832-9.483C22 6.484 17.522 2 12 2z"
-                />
-              </svg>Facebook</a>
+<!-- NAVIGATION -->
+
+<header>
+
+<nav class="navbar">
 
 
-              <a href="file:///Users/macbookpro/Desktop/hattie's%20house/credit%20card.html">CreditCard</a>
-                <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="file:///Users/macbookpro/Desktop/hattie's%20house/untitled%20folder%2012/bbb.html">Children</a>
-                <a href="#donate">Donate</a>
-                <a href="#contact">Contact</a>
-                <a href="#" id="logoutBtn">Logout</a>
-            </nav>
-            
-        </div>
-         
-               
-        <div class="profile" id="profileMenu">
-            <img src="003.jpg" alt="Profile" />
-           
-      
-            <div class="dropdown" id="dropdownMenu">
-              <div style="padding:16px; text-align:center;">
-                <img src="003.jpg" alt="Profile" style="width:80px; height:80px; border-radius:50%; margin-bottom:10px;" />
-                <h3 style="margin:6px 0; font-size:16px;">Hattie House</h3>
-                <p style="margin:0; font-size:14px; color:#666;">hattiehouse19@gmail.com </p>
-              </div>
+<div class="logo">
 
-              <a href="#">Edit Profile</a>
-              <a href="#">Account Settings</a>
-              <a href="#">Logout</a>
-            </div>
-    </header>
+<h1>
+<span>Hattie</span>'s House
+</h1>
 
-    <section id="home" class="hero">
-        <h2>Providing Love, Care, and Education</h2>
-        <p>Help us make a difference in the lives of children.</p>
-        <button onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'})">Donate Now</button>
-    </section>
-
-    <section id="about">
-        <h2>About Our hattiehouse</h2>
-        <p>We provide a safe, loving, and nurturing environment for children in need. Our goal is to help them grow and succeed in life through education, support, and care.</p>
-    </section>
+</div>
 
 
-    <h2 style="text-align:center;"> Meet our children</h2>
 
-    <!-- 6 IMAGES WITH NAMES -->
-    <div class="gallery">
-    
-      <div class="image-box">
-        <img src="001.jpg" class="click-image">
-        <div class="image-name">Succes Siryon Age 10</div>
-      </div>
-    
-      <div class="image-box">
-        <img src="002.jpg" class="click-image">
-        <div class="image-name">Elizibeth Waka Age 10</div>
-      </div>
-    
-      <div class="image-box">
-        <img src="003.jpg" class="click-image">
-        <div class="image-name">Group Photo</div>
-      </div>
-    
-      <div class="image-box">
-        <img src="004.jpg" class="click-image">
-        <div class="image-name">Salomie Solomo 10</div>
-      </div>
-    
-      <div class="image-box">
-        <img src="005.jpg" class="click-image">
-        <div class="image-name">Linda Duodeh Age 13</div>
-      </div>
-    
-      <div class="image-box">
-        <img src="006.jpg" class="click-image">
-        <div class="image-name">Neomie Solomo Age 5</div>
-      </div>
-    
-    </div>
+<div class="menu-icon" onclick="openMenu()">
 
-    <section id="donate">
-        <h2>Donate to Help</h2>
-        <p>Your donation helps us provide food, education, and care for our children.</p>
-        <form id="donateForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="number" placeholder="Donation Amount ($)" required>
-            <button type="submit">Donate</button>
-        </form>
-        <p id="donateMessage" class="success"></p>
-    </section>
+☰
 
-    <section id="contact">
-       <h2> <span style="color: #25a6e2;"> Contact</span> </h2>
-       
-           <p> <span style="color: #020607;"> Email:</span> </9> <span style="color: #25a6e2;">hattiehouse19@gmail.com |</span> Phone: <span style="color: #25a6e2;">+231 0777897380|0770217435</span></p>
-         Address: <span style="color: #25a6e2;">Lower Johnsonville Montserrado County Monrovia Liberia</span></h1>
-
-        <form id="contactForm">
-            <input type="text" id="contactName" placeholder="Your Name" required>
-            <input type="email" id="contactEmail" placeholder="Your Email" required>
-            <textarea id="contactMessageText" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <p id="contactMessage" class="success"></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Our hattiehouse. All Rights Reserved.</p>
-    </footer>
 </div>
 
 
 
 
 
+<ul id="navLinks">
+
+
+<li>
+<a href="#home">
+Home
+</a>
+</li>
+
+
+<li>
+<a href="#about">
+About
+</a>
+</li>
+
+
+
+<li>
+<a href="#children">
+Children
+</a>
+</li>
+
+
+
+<li>
+<a href="#gallery">
+Gallery
+</a>
+</li>
+
+
+
+<li>
+<a href="#donate" onclick="showDonate(); return false;">
+Donate
+</a>
+</li>
+
+
+
+
+<li>
+ <a href="#contact" onclick="showContact(); return false;">
+     Contact
+  </a>
+</li>
+
+
+
+
+<li>
+<a href="https://www.facebook.com/profile.php?id=61581631665760">
+Facebook
+</a>
+</li>
+
+
+
+</ul>
+
+
+
+
+
+<!-- PROFILE -->
+
+<div class="profile">
+
+
+<img src="088.jpeg">
+
+
+
+<div class="profile-menu">
+
+
+<h3>
+Hattie's House
+</h3>
+
+
+<p>
+hattiehouse19@gmail.com
+</p>
+
+
+
+<a href="#">
+Edit Profile
+</a>
+
+
+<a href="#">
+Settings
+</a>
+
+
+<button onclick="logout()">
+Logout
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+</nav>
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- HOME -->
+
+<section id="home" class="hero">
+
+
+<div class="hero-content">
+
+
+<h2>
+Providing Love, Care & Education
+</h2>
+
+
+<p>
+Helping children build a better future in Liberia.
+</p>
+
+
+
+<button onclick="openSection('donate')">
+
+Donate Now
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ABOUT -->
+
+
+<section id="about">
+
+
+<h2>
+About Hattie's House
+</h2>
+
+
+<p>
+We provide a safe, loving and supportive environment
+for children. Our mission is to provide education,
+care and opportunities for children to grow.
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- CHILDREN -->
+
+
+<section id="children">
+
+
+<h2>
+Meet Our Children
+</h2>
+
+
+
+<div class="children-grid">
+
+
+
+<div class="card">
+
+<img src="001.jpg" class="gallery-image">
+
+<h3>
+Success Siryon
+</h3>
+
+<p>
+Age 10
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="002.jpg"  class="gallery-image">
+
+<h3>
+Elizabeth Waka
+</h3>
+
+<p>
+Age 10
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="003.jpg" class="gallery-image">
+
+
+<h3>
+Hattie's House Family
+</h3>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- GALLERY -->
+
+
+
+<section id="gallery">
+
+    <h2>Photo Gallery</h2>
+    
+    <div id="gallery-container"></div>
+    
+    <div class="upload-box">
+    
+    <h3>Upload New Photo</h3>
+    
+    <input
+    type="file"
+    id="image-upload"
+    accept="image/*">
+    
+    <button onclick="uploadImage()">
+    Upload Image
+    </button>
+    
+    <p id="upload-message"></p>
+    
+    </div>
+    
+    </section>
+
+
+<!-- DONATE -->
+
+<section id="donate" style="display:none;">
+
+
+<h2>
+Support Our Children
+</h2>
+
+
+<p>
+Your donation helps provide food,
+education and care.
+</p>
+
+
+
+<form>
+
+
+<input placeholder="Your Name">
+
+
+<input placeholder="Your Email">
+
+
+<input placeholder="Donation Amount">
+
+
+
+<button>
+Donate
+</button>
+
+
+
+</form>
+
+
+</section>
+
+
+
+<div class="gallery">
+    <img src="https://xfzwteviynfvkxsgqapz.supabase.co/storage/v1/object/public/gallery/IMG_1784.jpeg" 
+         alt="Gallery Image"
+         onclick="openImage(this.src)">
+  </div>
+
+
+
+
+
+<!-- CONTACT -->
+<section id="contact" style="display:none;">
+
+    <div class="contact-header">
+    
+    <h1>Let's Connect</h1>
+    
+    <p>
+    We'd love to hear from you. Whether you want to support our children,
+    volunteer, partner with us, or simply ask a question,
+    our team is ready to help.
+    </p>
+    
+    </div>
+    
+    <div class="contact-container">
+    
+    <div class="contact-info">
+    
+    <div class="contact-card">
+    
+    <h3>📧 Email</h3>
+    
+    <p>
+    
+    <form id="contactForm"></form>
+    hattiehouse19@gmail.com
+    </a>
+    
+    </p>
+    
+    </div>
+    
+    <div class="contact-card">
+    
+    <h3>📞 Phone</h3>
+    
+    <p>
+    
+    <a href="tel:+231777897380">
+    +231 777 897 380
+    </a>
+    
+    </p>
+    
+    <a
+    href="https://wa.me/231777897380"
+    target="_blank"
+    class="whatsapp-btn">
+    
+    Chat on WhatsApp
+    
+    </a>
+    
+    </div>
+    
+    <div class="contact-card">
+    
+    <h3>📍 Address</h3>
+    
+    <p>
+    
+    Lower Johnsonville<br>
+    
+    Montserrado County<br>
+    
+    Monrovia, Liberia
+    
+    </p>
+    
+    </div>
+    
+    <div class="social-links">
+    
+    <a href="https://www.facebook.com/profile.php?id=61581631665760">
+    
+    Facebook
+    
+    </a>
+    
+    <a href="#">
+    
+    Instagram
+    
+    </a>
+    
+    <a href="#">
+    
+    YouTube
+    
+    </a>
+    
+    </div>
+    
+    </div>
+    
+    <div class="contactForm">
+    
+    <h2>Send Us a Message</h2>
+    
+    <form action="mailto:hattiehouse19@gmail.com" method="post" enctype="text/plain">
+    <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required>
+    
+   
+    
+    <input
+    type="text"
+    name="subject"
+    placeholder="Subject">
+    
+    <textarea
+    name="message"
+    placeholder="Write your message..."
+    required></textarea>
+    
+    <button type="submit">
+
+        Send Message
+        
+        </button>
+        
+        <div id="successMessage">
+        
+        Message sent successfully! Thank you for contacting Hattie's House.
+        
+        </div>
+    
+    Send Message
+    
+    </button>
+    
+    </form>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+
+
+
+<!-- IMAGE VIEWER -->
+
+<div id="imageViewer" class="image-viewer">
+
+    <span class="close-image">&times;</span>
+    
+    <img id="fullImage">
+    
+    </div>
+
+
+
+<footer>
+
+
+<p>
+© 2026 Hattie's House Liberia.
+All Rights Reserved.
+</p>
+
+
+</footer>
+
+
+
+
+</div>
+
+
+<div id="lightbox">
+    <span id="close-lightbox">&times;</span>
+    <img id="lightbox-image">
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 <script>
-    const profileMenu = document.getElementById("profileMenu");
-    const dropdownMenu = document.getElementById("dropdownMenu");
-
-    profileMenu.addEventListener("click", () => {
-      dropdownMenu.style.display = dropdownMenu.style.display === "flex" ? "none" : "flex";
-    });
-
-    // Close when clicking outside
-    document.addEventListener("click", (e) => {
-      if (!profileMenu.contains(e.target)) {
-        dropdownMenu.style.display = "none";
-      }
-    });
-  </script>
-
-
-<script>
-    let popup = document.getElementById("popup");
-    let popupImg = document.getElementById("popupImg");
-    let closeBtn = document.getElementById("closeBtn");
-    let images = document.querySelectorAll(".click-image");
+    const SUPABASE_URL = "https://xfzwteviynfvkxsgqapz.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_WVksMPnVmmK8GzPHvhmOdg_uMxMRFMK";
     
-    // Open popup with clicked image
-    images.forEach(img => {
-      img.onclick = function() {
-        popup.style.display = "block";
-        popupImg.src = this.src;
-      };
-    });
+    const supabaseClient = supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
     
-    // Close popup
-    closeBtn.onclick = function() {
-      popup.style.display = "none";
-    };
+    console.log("Supabase connected");
     
-    // Close when clicking background
-    popup.onclick = function(e) {
-      if (e.target === popup) {
-        popup.style.display = "none";
-      }
-    };
+    // Your other JavaScript continues here...
+    
     </script>
-    
 
 <script>
-// LOGIN (any email/password)
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    document.getElementById('loginPage').style.display = "none";
-    document.getElementById('mainContent').style.display = "block";
+    /* =========================
+   LOGIN
+========================= */
+
+
+function login(){
+
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+
+
+if(email !== "" && password !== ""){
+
+    document.getElementById("loginPage").style.display="none";
+
+    document.getElementById("mainContent").style.display="block";
+
+
+}else{
+
+    alert("Please enter your email and password");
+
+}
+
+}
+
+
+
+
+
+/* =========================
+LOGOUT
+========================= */
+
+
+function logout(){
+
+document.getElementById("mainContent").style.display="none";
+
+document.getElementById("loginPage").style.display="flex";
+
+}
+
+
+
+
+
+
+
+/* =========================
+MOBILE MENU
+========================= */
+
+
+function openMenu(){
+
+let menu = document.getElementById("navLinks");
+
+
+menu.classList.toggle("active");
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+PHOTO UPLOAD PREVIEW
+========================= */
+
+
+let photoUpload=document.getElementById("photoUpload");
+
+
+
+if(photoUpload){
+
+
+photoUpload.onchange=function(){
+
+
+let preview=document.getElementById("photoPreview");
+
+
+preview.innerHTML="";
+
+
+
+for(let file of this.files){
+
+
+let image=document.createElement("img");
+
+
+image.src=URL.createObjectURL(file);
+
+
+preview.appendChild(image);
+
+
+
+}
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+VIDEO UPLOAD PREVIEW
+========================= */
+
+
+let videoUpload=document.getElementById("videoUpload");
+
+
+
+if(videoUpload){
+
+
+videoUpload.onchange=function(){
+
+
+let preview=document.getElementById("videoPreview");
+
+
+preview.innerHTML="";
+
+
+
+for(let file of this.files){
+
+
+let video=document.createElement("video");
+
+
+video.src=URL.createObjectURL(file);
+
+
+video.controls=true;
+
+
+preview.appendChild(video);
+
+
+
+}
+
+
+}
+
+
+}
+
+
+
+
+/* =========================
+CLOSE MOBILE MENU
+AFTER CLICK
+========================= */
+
+
+
+let menuLinks = document.querySelectorAll("#navLinks a");
+
+menuLinks.forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        let menu = document.getElementById("navLinks");
+
+        menu.classList.remove("active");
+
+    });
+
 });
 
-// LOGOUT
-document.getElementById('logoutBtn').addEventListener('click', function() {
-    document.getElementById('mainContent').style.display = "none";
-    document.getElementById('loginPage').style.display = "flex";
+/* =========================
+SHOW CONTACT
+========================= */
+
+function showContact(){
+
+document.getElementById("contact").style.display="block";
+
+document.getElementById("contact").scrollIntoView({
+    behavior:"smooth"
 });
 
-// DONATE FORM
-document.getElementById('donateForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    document.getElementById('donateMessage').innerText = "Thank you for your donation!";
-    this.reset();
+}
+
+
+
+/* =========================
+CONTACT FORM
+========================= */
+
+
+/* =========================
+EMAILJS CONTACT FORM
+========================= */
+
+(function(){
+
+emailjs.init({
+    publicKey: "6bzewtu0czZ1eiGfi",
 });
 
-// CONTACT FORM using mailto
-document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('contactName').value;
-    const email = document.getElementById('contactEmail').value;
-    const message = document.getElementById('contactMessageText').value;
+})();
 
-    const subject = encodeURIComponent(`Message from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
 
-    window.location.href = `mailto:enochduodeh9@gmail.com?subject=${subject}&body=${body}`;
+let contactForm = document.getElementById("contactForm");
 
-    document.getElementById('contactMessage').innerText = "Your email client should open to send the message!";
-    this.reset();
+
+if(contactForm){
+
+contactForm.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+
+emailjs.sendForm(
+    "service_ud5rkym",
+    "template_vyenicc",
+    this
+)
+
+.then(function(){
+
+alert("Message sent successfully! Thank you for contacting Hattie's House.");
+
+contactForm.reset();
+
+
+}, function(error){
+
+alert("Message failed to send. Please try again.");
+
+console.log(error);
+
 });
+
+
+});
+
+}
+
+
+
+/* =========================
+IMAGE VIEWER
+========================= */
+
+let images = document.querySelectorAll(".gallery-image");
+
+let viewer = document.getElementById("imageViewer");
+
+let fullImage = document.getElementById("fullImage");
+
+let closeImage = document.querySelector(".close-image");
+
+images.forEach(function(img){
+
+img.onclick = function(){
+
+viewer.style.display = "flex";
+
+fullImage.src = this.src;
+
+}
+
+});
+
+closeImage.onclick = function(){
+
+viewer.style.display = "none";
+
+}
+
+viewer.onclick = function(e){
+
+if(e.target == viewer){
+
+viewer.style.display = "none";
+
+}
+
+}
+
+
+function openImage(src) {
+    window.open(src, "_blank");
+}
+</script>
+
+
+
+
+</script>
+
+<script>
+    async function loadGallery() {
+
+const gallery = document.getElementById("gallery-container");
+
+if (!gallery) return;
+
+gallery.innerHTML = "";
+
+const { data, error } = await supabaseClient
+    .storage
+    .from("gallery")
+    .list("", {
+        sortBy: {
+            column: "created_at",
+            order: "desc"
+        }
+    });
+
+
+if (error) {
+    console.log("Gallery loading error:", error);
+    return;
+}
+
+
+data.forEach(file => {
+
+
+    const { data: urlData } = supabaseClient
+        .storage
+        .from("gallery")
+        .getPublicUrl(file.name);
+
+
+
+    const img = document.createElement("img");
+
+    img.src = urlData.publicUrl;
+
+    img.alt = "Gallery Image";
+
+    img.className = "gallery-image";
+
+
+    img.onclick = function(){
+
+        const lightbox = document.getElementById("lightbox");
+
+        const lightboxImage = document.getElementById("lightbox-image");
+
+        lightboxImage.src = urlData.publicUrl;
+
+        lightbox.style.display = "flex";
+
+    };
+
+
+    gallery.appendChild(img);
+
+
+});
+
+}
+
+
+
+
+async function uploadImage() {
+
+
+const input = document.getElementById("image-upload");
+
+const file = input.files[0];
+
+const message = document.getElementById("upload-message");
+
+
+
+if (!file) {
+
+    message.innerHTML = "Please choose an image.";
+
+    return;
+
+}
+
+
+
+const fileName = Date.now() + "-" + file.name;
+
+
+
+const { error } = await supabaseClient
+    .storage
+    .from("gallery")
+    .upload(fileName, file);
+
+
+
+if(error){
+
+    console.log(error);
+
+    message.innerHTML = "Upload failed.";
+
+    return;
+
+}
+
+
+
+message.innerHTML = "Image uploaded successfully!";
+
+
+input.value = "";
+
+
+loadGallery();
+
+}
+
+
+
+loadGallery();
+</script>
+
+
+<script>
+   // CLOSE LIGHTBOX
+
+const closeLightbox = document.getElementById("close-lightbox");
+
+const lightbox = document.getElementById("lightbox");
+
+
+if(closeLightbox){
+
+    closeLightbox.onclick = function(){
+
+        lightbox.style.display = "none";
+
+    };
+
+}
+
+
+if(lightbox){
+
+    lightbox.onclick = function(e){
+
+        if(e.target === lightbox){
+
+            lightbox.style.display = "none";
+
+        }
+
+    };
+
+} 
 </script>
 
 </body>
+
 </html>
